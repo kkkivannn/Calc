@@ -1,39 +1,10 @@
-def get_num(num):
-    sum = 0
-    for i in range(1, num+1):
-        for j in str(i):
-            sum += int(j)
-            
-    return sum
-    
-year = int(input("Введите год: "))
-answer = 0
-if year%4==0 and year%100!=0 or     year%400==0:
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(30)
-         answer += get_num(30)
-         answer += get_num(30)
-         answer += get_num(30)
-         answer += get_num(29)
-else:
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(31)
-         answer += get_num(30)
-         answer += get_num(30)
-         answer += get_num(30)
-         answer += get_num(30)
-         answer += get_num(28)
-         
-print(answer)
- 
+import calendar
+year = int(input("Укажите год: "))
+result = 0
+for i in range(1, 13):
+    day = calendar.monthrange(year, i)[1]
+    for j in range(1, day+1):
+        firstNumber = int(j/10)
+        secondNumber = int(j%10)
+        result += firstNumber + secondNumber
+print(result)
